@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳客官方网 · 再访与珍藏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "Helvetica Neue", Arial, sans-serif;
+            color: #2e2e2e;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 首页横幅 hero */
+        .hero {
+            background: linear-gradient(145deg, #ffffff, #f0ede8);
+            border-radius: 24px;
+            padding: 3rem 2.5rem 3.2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #e6e3dc;
+            position: relative;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9b8f80;
+            border-bottom: 1px solid #d6cec0;
+            padding-bottom: 0.3rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 450;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #5a5548;
+            max-width: 640px;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero .meta {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #8b8072;
+            border-top: 1px solid #e2dbd0;
+            padding-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        /* 背景说明卡片 */
+        .background-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem 2.2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e3ddd4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .background-card h2 {
+            font-size: 1.5rem;
+            font-weight: 420;
+            color: #2c2822;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            border-left: 3px solid #b3a392;
+            padding-left: 1rem;
+        }
+
+        .background-card p {
+            font-size: 0.98rem;
+            color: #3f3b34;
+            margin-bottom: 0.9rem;
+        }
+
+        .background-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 三段自然介绍 —— 卡片区 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin: 2.8rem 0 2rem;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            border: 1px solid #e3ddd4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+        }
+
+        .feature-item .num {
+            display: inline-block;
+            font-size: 0.7rem;
+            color: #b6aa98;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            border: 1px solid #ddd5c8;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            color: #2c2822;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #4f4a41;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item .highlight {
+            background: #f4f1ea;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            color: #2b2720;
+            font-weight: 400;
+        }
+
+        /* 提示模块 —— 类似 FAQ 摘要风格 */
+        .faq-note {
+            background: #faf9f5;
+            border-radius: 20px;
+            padding: 2rem 2.2rem 2.2rem;
+            margin: 2.5rem 0 2rem;
+            border: 1px solid #e3ddd4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .faq-note h2 {
+            font-size: 1.3rem;
+            font-weight: 420;
+            color: #2c2822;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-item {
+            margin-bottom: 1.1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #24211c;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #4f4a41;
+            margin-left: 0.2rem;
+        }
+
+        .faq-item .tag {
+            display: inline-block;
+            background: #e1dad0;
+            color: #2f2b24;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            margin-right: 0.4rem;
+        }
+
+        /* 页尾访问提示 */
+        .footer-note {
+            margin-top: 2.5rem;
+            padding: 1.8rem 2rem 1.5rem;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e3ddd4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .footer-note p {
+            font-size: 0.98rem;
+            color: #3f3b34;
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-note .link-wrap {
+            display: inline-block;
+            background: #f2eee7;
+            padding: 0.4rem 1.4rem;
+            border-radius: 60px;
+            border: 1px solid #d6cec0;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .footer-note .link-wrap:hover {
+            background: #e8e0d4;
+            border-color: #b3a392;
+        }
+
+        .footer-note a {
+            text-decoration: none;
+            color: #2b2720;
+            font-weight: 450;
+            font-size: 1rem;
+        }
+
+        .footer-note a:hover {
+            color: #0f0d0a;
+        }
+
+        .footer-meta {
+            margin-top: 1.2rem;
+            font-size: 0.78rem;
+            color: #9d9285;
+            border-top: 1px solid #e9e3d9;
+            padding-top: 1rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e0d9ce;
+            margin: 1.5rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem 2.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .background-card, .faq-note, .footer-note {
+                padding: 1.5rem 1.2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .hero .meta {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .footer-note .link-wrap {
+                width: 100%;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+        <div class="hero-label">· 再次遇见</div>
+        <h1>回到这里，像翻一本旧杂志</h1>
+        <p>有些页面值得你放慢脚步，收藏在书签栏里，偶尔回来翻一翻。<br>不只是信息，也是一种习惯的延续。</p>
+        <div class="meta">
+            <span>📌 你可能已经收藏过</span>
+            <span>🔄 也可以再次发现</span>
+            <span>✧ 常来常新</span>
+        </div>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="background-card">
+        <h2>一个关于「再次打开」的背景</h2>
+        <p>我们总是匆匆浏览，然后关上标签页。但有些站点值得你多停留一次——不是因为浮夸的承诺，而是因为它融入日常的细节。很多朋友习惯把 <strong>澳客官方网</strong> 放在浏览器书签的某个角落，每当想看看竞彩趋势、数据整理或赛事分布时，就会顺手点开。</p>
+        <p>这个页面不是为了推销什么，只是安静地告诉你：如果你曾经来过，现在可以再坐一会儿。如果你把它加入了收藏夹，那正好，我们继续。</p>
+    </div>
+
+    <!-- 三段自然介绍：特点 / 场景 / 持续关注 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <span class="num">01</span>
+            <h3>信息整理，而非喧嚣</h3>
+            <p>没有浮夸的弹窗和催促，只有经过筛选的赛事数据、联赛动态与历史对比。你不需要时刻盯着，只需要在需要时打开 <span class="highlight">书签</span> 就好。</p>
+            <p>安静、整洁，像一个老朋友递过来的笔记本。</p>
+        </div>
+        <div class="feature-item">
+            <span class="num">02</span>
+            <h3>收藏的理由</h3>
+            <p>为什么你会愿意把某个站点留在收藏夹里？因为它稳定、可靠，而且每次回来都能找到你需要的东西。从比分追踪到赔率变化，从赛程安排到球队状态——</p>
+            <p>这些不是一次性的，而是值得反复查阅的。</p>
+        </div>
+        <div class="feature-item">
+            <span class="num">03</span>
+            <h3>持续关注的节奏</h3>
+            <p>我们不需要每天都来，但每当联赛日来临、或者想复盘某场比赛时，你知道去哪里。持续关注不意味着刷屏，而是在需要时，它就在那里。</p>
+            <p>书签栏里的位置，是用户自己选的。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要风格提示 -->
+    <div class="faq-note">
+        <h2>一些你可能想问的 · 摘要</h2>
+        <div class="faq-item">
+            <strong><span class="tag">Q</span> 为什么我上次收藏的链接还能用？</strong>
+            <p>因为地址稳定，长期维护。你收藏的 <strong>澳客官方网</strong> 入口不会随意变动，可以放心保留在书签中。</p>
+        </div>
+        <div class="faq-item">
+            <strong><span class="tag">Q</span> 需要注册或登录才能浏览吗？</strong>
+            <p>大部分内容和数据可以直接查看，无需强制注册。部分个性化功能可根据需要自行选择。</p>
+        </div>
+        <div class="faq-item">
+            <strong><span class="tag">Q</span> 多久更新一次数据？</strong>
+            <p>赛前、赛中、赛后均有动态更新，具体以实际比赛节奏为准。建议在需要时直接访问确认。</p>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>如果你还没有收藏，或者想重新确认这个地址——</p>
+        <div class="link-wrap">
+            <a href="https://beta-okooo.com">澳客官方网</a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b6257;">把它放在你顺手的位置，下次再来就不必费力寻找。</p>
+        <div class="footer-meta">
+            <span>— 来自一个安静的角落 · 随时欢迎你回来 —</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
